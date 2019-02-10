@@ -9,6 +9,11 @@ import {
 
 
 export default class Note extends Component {
+  
+        state = {
+            checked: false
+        }
+    
   render() {
 
   
@@ -17,8 +22,9 @@ export default class Note extends Component {
         <Text style={styles.noteText}>{this.props.val.date}</Text>
 
         <CheckBox title={this.props.val.note} 
-                  checked={true}
-                  onPress={this.props.onChecked} />
+                  checked={this.state.checked}
+                  onIconPress={() => this.setState({checked: !false})}
+                  />
 
         <TouchableOpacity
           onPress={this.props.deleteMethod}
@@ -51,13 +57,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "blue",
     color: 'red',
-    padding: 10,
-    margin: 45,
+    padding: 15,
+    margin: 40,
     right: 2,
 
   },
   noteDeleteText: {
     color: "white",
-    fontSize: 20
+
   }
 });

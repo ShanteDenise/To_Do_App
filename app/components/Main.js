@@ -12,7 +12,6 @@ import {
     } from 'react-native';
 
 
-
 export default class Main extends Component{
     constructor(props){
         super(props)
@@ -36,6 +35,7 @@ export default class Main extends Component{
         <View style={styles.header}>
             <Text style={styles.headerText}> 
                     What are you doing today?
+
             </Text>
         </View>
         </LinearGradient>
@@ -63,18 +63,13 @@ export default class Main extends Component{
     );
   }
 
-  onChecked = () => {
-      this.setState()({
-          checked: true
-      })
-  }
 
   addNote(){
       if(this.state.noteText){
 
           var d = new Date();
           this.state.noteArray.push({
-              'date': (d.getHours() -12) + ":" + d.getMinutes() ,
+              'date': (d.getHours() -12) + ":" + d.getMinutes(),
               'note': this.state.noteText
           })
           this.setState({ noteArray: this.state.noteArray})
